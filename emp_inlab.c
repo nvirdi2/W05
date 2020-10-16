@@ -64,7 +64,6 @@ int main(void)
 				{
 					printf("%6d%9d%11.2lf\n", emp[i].ID, emp[i].age, emp[i].salary);    //array output numbers
 				}
-				printf("\n");
 			// Use "%6d%9d%11.2lf" formatting in a   
 			// printf statement to display
 			// employee id, age and salary of 
@@ -74,7 +73,7 @@ int main(void)
 			// and will only display Employee data 
 			// where the EmployeeID is > 0
 			}
-
+				printf("\n");
 			break;
 
 		case 2:	// Adding Employee
