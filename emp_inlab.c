@@ -27,7 +27,7 @@ int main(void)
 	int option = 0;    //interger option
 
 	// Declare a struct Employee array "emp" with SIZE elements 
-    int Emp = 0;     int Emp
+    int Emp = 0;       
 	// and initialize all elements to zero
     struct Employee emp[SIZE] = { { 0 } };    //Array for emplyee
     
