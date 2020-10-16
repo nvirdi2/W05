@@ -24,26 +24,26 @@ struct Employee
 /* main program */
 int main(void) 
 {
-	int option = 0;
+	int option = 0;    //interger option
 
 	// Declare a struct Employee array "emp" with SIZE elements 
-    int Emp = 0;
+    int Emp = 0;     int Emp
 	// and initialize all elements to zero
-    struct Employee emp[SIZE] = { { 0 } };
+    struct Employee emp[SIZE] = { { 0 } };    //Array for emplyee
     
-	printf("---=== EMPLOYEE DATA ===---\n\n");
+	printf("---=== EMPLOYEE DATA ===---\n\n");   //output employee data
 
 	do 
 	{
 		// Print the option list
-		printf("1. Display Employee Information\n");
-		printf("2. Add Employee\n");
-		printf("0. Exit\n\n");
-		printf("Please select from the above options: ");
+		printf("1. Display Employee Information\n");   //output option 1
+		printf("2. Add Employee\n");           //output option 2
+		printf("0. Exit\n\n");    //output option 3
+		printf("Please select from the above options: ");       //output to take input from user 
 		
 		// Capture input to option variable
-		scanf("%d",&option);
-		printf("\n");
+		scanf("%d",&option);    //scanner to take input about the users option choice
+		printf("\n");   //empty line
 		
 		switch (option) 
 		{
@@ -54,15 +54,15 @@ int main(void)
 		case 1: // Display Employee Data
 				// @IN-LAB
 
-			printf("EMP ID  EMP AGE EMP SALARY\n");
-			printf("======  ======= ==========\n");
+			printf("EMP ID  EMP AGE EMP SALARY\n");      //array output 
+			printf("======  ======= ==========\n");       //array output
 
 			int i = 0;
-			for (i = 0; i < SIZE; i++)
+			for (i = 0; i < SIZE; i++)    //for loop starting 
 			{
 				if (emp[i].ID > 0)
 				{
-					printf("%6d%9d%11.2lf\n\n", emp[i].ID, emp[i].age, emp[i].salary);
+					printf("%6d%9d%11.2lf\n\n", emp[i].ID, emp[i].age, emp[i].salary);    //array output numbers
 				}
 			// Use "%6d%9d%11.2lf" formatting in a   
 			// printf statement to display
@@ -79,22 +79,22 @@ int main(void)
 		case 2:	// Adding Employee
 				// @IN-LAB
 				
-			printf("Adding Employee\n");
+			printf("Adding Employee\n");  //output option 2
 			printf("===============\n");
 
 			// Check for limits on the array and add employee 
 			// data accordingly. 
-			if (Emp >= SIZE)
+			if (Emp >= SIZE)     // enter up to 2 inputs
 			{
 				printf("ERROR!!! Maximum Number of Employees Reached\n\n");
 			}
 			else
 			{
-				printf("Enter Employee ID: ");
+				printf("Enter Employee ID: ");        //output option 2 QUESTION 1
 				scanf("%d", &emp[Emp].ID);
-				printf("Enter Employee Age: ");
+				printf("Enter Employee Age: ");       //output option 2 QUESTION 2
 				scanf("%d", &emp[Emp].age);
-				printf("Enter Employee Salary: ");
+				printf("Enter Employee Salary: ");      //output option 2 QUESTION 3
 				scanf("%lf", &emp[Emp].salary);
 				printf("\n");
 
@@ -103,7 +103,7 @@ int main(void)
 			break;
 
 		default:
-			printf("ERROR: Incorrect Option: Try Again\n\n");
+			printf("ERROR: Incorrect Option: Try Again\n\n");  //more than 2 times, give the user a error message 
 		}
 
 	} while (option != 0);
