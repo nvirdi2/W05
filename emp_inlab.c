@@ -63,7 +63,6 @@ int main(void)
 				if (emp[i].ID > 0)
 				{
 					printf("%6d%9d%11.2lf\n", emp[i].ID, emp[i].age, emp[i].salary);    //array output numbers
-					printf("\n");
 				}
 			// Use "%6d%9d%11.2lf" formatting in a   
 			// printf statement to display
