@@ -1,0 +1,25 @@
+    The learning objective of this workshop was very important. This workshop has taught me how to create
+array of structs and when i compared it to the parallel arrays I made during hte last workshop I was able to
+understand how much more array of structs are and how grouped and organized it is. The workshop has given me
+experience with not just working with array of structs but how to take the array of struct and use with the 
+loops. The idea behind this workshop was to get familiar with arrays and that for sure worked. 
+    This workshop was very important to learn the difference between parallel 
+arrays and array of struct. This program helped me create a table where I
+could take data and have it organized. The array of struct was used to group
+data that is similar. Although parallel array do the same thing it just takes
+memory too! The time to put in all the data was more efficent when using array 
+of struct. For example, the array of struct took all the data from one employee 
+and quickly created a array out of it. When we did the parallel array for temperature
+and day, it wook a very look time to take all the data and place it one by one. The 
+struct took all the data and grouped it much faster, which was very efficent. To be more clear
+the first parallel array was for day, then high temperature, and last one for low temperature. 
+This array of structure took data from the user in a group and placed it together more faster 
+without having serveral different arrays. 
+    Passing by address would be more efficent way of passing these objects. This allows any
+any copying to be controlled, the time and space would also be saved. The passing with address
+would have made it easier to copy address and then if we did not want to change it we can add a canstant 
+qualifier to protect it in a way from any changes. In other words, it is much more efficentto pass 
+by address than by value. The reason passing by value is much slower is because it copies the value 
+and takes its time when you need to change the values. However, array of struct is much more efficent
+compared to parallel arrays. When choosing between passing by value and passing by address; address is much
+more efficent and faster.
