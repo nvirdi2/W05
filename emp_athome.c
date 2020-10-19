@@ -109,18 +109,19 @@ int main(void)
 
 		case 3: // Update Employee Salary
 				//@AT-HOME
-			printf("Update Employee Salary\n");
+			printf("Update Employee Salary\n");      //output statement 1  
 			printf("======================\n");
 
 			do
 			{
 			printf("Enter Employee ID: ");
             scanf("%d", &findUserID);
-			
+		
 				for (i = 0; i < Emp; i++)
 						{
 							if (findUserID == emp[i].ID) 
 							{
+								//Find user ID process 
 								Search = i;
 								i = SIZE;
 								printf("The current salary is %.2f\n", emp[Search].salary);
@@ -130,7 +131,7 @@ int main(void)
 							}
 							else if (i == SIZE - 1 )
 							{
-							printf ("*** ERROR: Employee ID not found! ***\n");
+							printf ("*** ERROR: Employee ID not found! ***\n"); //error message 
 							}
 						}
 			} while (Search < 0);
@@ -140,31 +141,32 @@ int main(void)
 			break;
 
 		case 4:
-			printf("Remove Employee\n");
+			printf("Remove Employee\n");   //output statement 2
 			printf("===============\n");
 			
 			do
 			{
-				printf("Enter Employee ID: ");
-				scanf("%d", &findUserID);
-
+				printf("Enter Employee ID: ");     //Employee ID
+				scanf("%d", &findUserID);    //Scanner for the User ID
+ 
 				
 				for (i = 0; i < SIZE; i++)		
 				{
 
 					if (findUserID == emp[i].ID)
 					{
+						//removing the ID searched for
 						Search = i;
 						emp[i].ID = 0;	
 						i = Emp;		
-						printf("Employee %d will be removed\n", findUserID);
+						printf("Employee %d will be removed\n", findUserID);   
 						printf("\n");
 
 					}
 
 					else if (i == Emp - 1)
 					{
-						printf("*** ERROR: Employee ID not found! ***\n");
+						printf("*** ERROR: Employee ID not found! ***\n");  //error message 
 					}
 				}
 
@@ -180,7 +182,7 @@ int main(void)
 
 
 		default:
-			printf("ERROR: Incorrect Option: Try Again\n\n");  //more than 2 times, give the user a error message 
+			printf("ERROR: Incorrect Option: Try Again\n\n"); 
 		}
 
 	} while (option != 0);
