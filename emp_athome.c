@@ -3,7 +3,7 @@
 // Student Number: 166485193
 // Email:          nvirdi2@myseneca.ca
 // Section:        NAA
-// Workshop:       5 (in-home)
+// Workshop:       5 (at-home)
 //==============================================
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -25,12 +25,13 @@ struct Employee
 /* main program */
 int main(void) 
 {
-	int Idsearch;
-	int UserID;
-	int option = 0;    //interger option
-
+	int option = 0;
+	int i = 0;
+	int findUserID = -1; 
+	int Search = -1;
 	// Declare a struct Employee array "emp" with SIZE elements 
-    int Emp = 0;       
+    int Emp = 0;   
+
 	// and initialize all elements to zero
     struct Employee emp[SIZE] = { { 0 } };    //Array for employee
     
@@ -58,11 +59,9 @@ int main(void)
 
 		case 1: // Display Employee Data
 				
-
 			printf("EMP ID  EMP AGE EMP SALARY\n");      //array output 
 			printf("======  ======= ==========\n");       //array output
 
-			int i = 0;
 			for (i = 0; i < SIZE; i++)    //for loop starting 
 			{
 				if (emp[i].ID > 0)
@@ -78,6 +77,7 @@ int main(void)
 			// and will only display Employee data 
 			// where the EmployeeID is > 0
 			}
+				i = 0;
 				printf("\n");
 			break;
 
@@ -89,11 +89,7 @@ int main(void)
 
 			// Check for limits on the array and add employee 
 			// data accordingly. 
-			if (Emp >= SIZE)     // enter up to 2 inputs
-			{
-				printf("ERROR!!! Maximum Number of Employees Reached\n\n");
-			}
-			else
+			if (Emp < SIZE)     // enter up to 2 inputs
 			{
 				printf("Enter Employee ID: ");        //output option 2 QUESTION 1
 				scanf("%d", &emp[Emp].ID);
@@ -102,9 +98,15 @@ int main(void)
 				printf("Enter Employee Salary: ");      //output option 2 QUESTION 3
 				scanf("%lf", &emp[Emp].salary);
 				printf("\n");
+	 
+	 			Emp++;
+			}
+			else
+			{
+				printf("ERROR!!! Maximum Number of Employees Reached\n\n");
+			} 
+			break;
 
-				Emp++;
-			} break;
 		case 3: // Update Employee Salary
 				//@AT-HOME
 			printf("Update Employee Salary\n");
@@ -112,65 +114,70 @@ int main(void)
 
 			do
 			{
-			option = 1;
 			printf("Enter Employee ID: ");
-            scanf("%d", &UserID);
+            scanf("%d", &findUserID);
 			
 				for (i = 0; i < Emp; i++)
-					//if(UserID == emp[Emp].ID)
 						{
-							if (emp[i].ID == UserID) 
-							break;
-							else if (i == Emp - 1 )
-							printf ("*** Error: Employee ID not found! ***\n");
+							if (findUserID == emp[i].ID) 
+							{
+								Search = i;
+								i = SIZE;
+								printf("The current salary is %.2f\n", emp[Search].salary);
+								printf("Enter Employee New Salary: ");
+								scanf("%lf", &emp[Search].salary);
+								printf("\n");
+							}
+							else if (i == SIZE - 1 )
+							{
+							printf ("*** ERROR: Employee ID not found! ***\n");
+							}
 						}
-						if (i != Emp)
-						{
-							printf("The current salary is %.2f\n", emp[i].salary);
-							printf("Enter Employee New Salary: ");
-							scanf("%lf", &emp[i].salary);
-							option = 1;
-							printf("\n");
-							break;
-						}
-			} while (option);
+			} while (Search < 0);
+
+			Search = -1;
+
 			break;
 
 		case 4:
 			printf("Remove Employee\n");
 			printf("===============\n");
 			
-			if (Emp == 0)
-			{								//in case there is no employee yet
-				printf("\nNo employee to remove\n\n");
-				break;
-			}
 			do
 			{
-				option = 1;
 				printf("Enter Employee ID: ");
-				scanf("%d", &UserID);
-				for (i = 0; i < Emp; i++)
+				scanf("%d", &findUserID);
+
+				
+				for (i = 0; i < SIZE; i++)		
 				{
-					if (emp[i].ID == UserID) 
-					break;
-					else if (i == Emp - 1) 
-					printf("*** Error: Employee ID not found! ***\n");
-				}
-				if (i != Emp) {
-					option = 1;
-					Idsearch = i;
-					printf("Employee %d will be removed\n\n", emp[Idsearch].ID);
-					for (i = Idsearch; i < Emp; i++)
+
+					if (findUserID == emp[i].ID)
 					{
-						if (i != Emp - 1) emp[i] = emp[i + 1];
-						else emp[i].ID = 0;
+						Search = i;
+						emp[i].ID = 0;	
+						i = Emp;		
+						printf("Employee %d will be removed\n", findUserID);
+						printf("\n");
+
 					}
-					Emp--;
-					break;
+
+					else if (i == Emp - 1)
+					{
+						printf("*** ERROR: Employee ID not found! ***\n");
+					}
 				}
-			} while (option);
+
+			} while (Search < 0);
+
+			Emp--;		// this will earse the data for the removed value
+			Emp--;
+			Emp--;
+
+			Search--;
+
 			break;
+
 
 		default:
 			printf("ERROR: Incorrect Option: Try Again\n\n");  //more than 2 times, give the user a error message 
